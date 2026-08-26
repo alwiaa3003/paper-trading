@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #faf9f6;
+  }
+  body {
+    @apply bg-ink text-paper font-body antialiased;
+  }
+  ::selection {
+    @apply bg-accent/15 text-paper;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #e8e5de transparent;
+  }
+  *:focus-visible {
+    outline: 2px solid #4f46e5;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-panel border border-line rounded-2xl shadow-soft;
+  }
+  .stat-tick {
+    @apply font-body tabular-nums;
+  }
+  .btn-primary {
+    @apply bg-accent hover:bg-accent/90 text-white font-medium px-4 py-2.5 rounded-xl transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-softer;
+  }
+  .btn-ghost {
+    @apply bg-panel hover:bg-panel2 border border-line text-paper font-medium px-4 py-2.5 rounded-xl transition-colors;
+  }
+  .input-field {
+    @apply w-full bg-panel border border-line rounded-xl px-3.5 py-2.5 text-paper placeholder-mist/60 focus:border-accent outline-none transition-colors;
+  }
+  .label-eyebrow {
+    @apply text-[11px] uppercase tracking-wider text-mist font-semibold;
+  }
+}
