@@ -16,9 +16,6 @@ const watchlistRoutes = require('./routes/watchlistRoutes');
 const analyticsRoutes = require('./routes/analyticsRoutes');
 
 
-connectDB();
-portfolioRefreshJob.start();
-
 const app = express();
 
 app.use(
@@ -45,4 +42,10 @@ app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+
+  connectDB();
+  portfolioRefreshJob.start();
+});
